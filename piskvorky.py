@@ -26,20 +26,21 @@ def tah_hrace(pole, symbol):
  
 def tah_pocitace(pole, pocitac_symbol):
     print ("Hraje počítač.")
-    symbol = pocitac_symbol
-    if "xx-" in pole:
-        pole = pole.replace("xx-", "xx" + pocitac_symbol)
-    elif "-xx" in pole:
-        pole = pole.replace("-xx", pocitac_symbol + "xx")
-    elif "oo-" in pole:
-        pole = pole.replace("oo-", "oo" + pocitac_symbol)
-    elif "-oo" in pole:
-        pole = pole.replace("-oo", pocitac_symbol + "oo")
+    vole_misto = "-"
+    tri_prasatka = pocitac_symbol + pocitac_symbol + vole_misto
+    tri_prasatka_nadruhou = vole_misto + pocitac_symbol + pocitac_symbol
+    # zkontroluju, jestli počítač má dva symboly vedle sebe
+    if tri_prasatka in pole:
+        pole = pole.replace(tri_prasatka, pocitac_symbol * 3)
+    elif tri_prasatka_nadruhou in pole:
+        pole = pole.replace(tri_prasatka_nadruhou, pocitac_symbol * 3)
+    # pak zkontroluju, jestli hráč nemá dva symboly vedle sebe
+
     else:
         cislo_policka = randrange (20)
         while "-" not in pole[cislo_policka - 1]:
             cislo_policka = randrange (20)
-        pole = tah(pole, cislo_policka, symbol)
+        pole = tah(pole, cislo_policka, pocitac_symbol)
         print("Počítač hrál pole", cislo_policka)
     print (pole)
     return pole
