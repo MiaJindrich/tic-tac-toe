@@ -1,9 +1,10 @@
 from random import randrange
 
 def vyhodnot(pole):
-    if "x" * 3 in pole:
+    pocet_symbolu = 3
+    if "x" * pocet_symbolu in pole:
         vysledek = "Vyhrály křížky!"
-    elif "o" * 3 in pole:
+    elif "o" * pocet_symbolu in pole:
         vysledek = "Vyhrály kolečka!"
     elif "-" not in pole:
         vysledek = "Remíza!"
@@ -31,6 +32,8 @@ def tah_pocitace(pole, pocitac_symbol, symbol):
     tri_prasatka_nadruhou = vole_misto + pocitac_symbol + pocitac_symbol
     tri_selatka = symbol + symbol + vole_misto
     tri_selatka_natruhou = vole_misto + symbol + symbol
+    divocak = pocitac_symbol + vole_misto
+    druhy_divocak = vole_misto + pocitac_symbol
     # zkontroluju, jestli počítač má dva symboly vedle sebe
     if tri_prasatka in pole:
         pole = pole.replace(tri_prasatka, pocitac_symbol * 3)
@@ -43,10 +46,14 @@ def tah_pocitace(pole, pocitac_symbol, symbol):
     elif tri_selatka_natruhou in pole:
         cast_pole_nadruhou = tri_selatka_natruhou.replace(vole_misto, pocitac_symbol)
         pole = pole.replace(tri_selatka_natruhou, cast_pole_nadruhou)
+    elif divocak in pole:
+        pole = pole.replace(divocak, pocitac_symbol * 2)
+    elif druhy_divocak in pole:
+        pole = pole.replace(druhy_divocak, pocitac_symbol * 2)
     else:
-        cislo_policka = randrange (20)
+        cislo_policka = randrange (1, 19)
         while "-" not in pole[cislo_policka - 1]:
-            cislo_policka = randrange (20)
+            cislo_policka = randrange (1, 19)
         pole = tah(pole, cislo_policka, pocitac_symbol)
         print("Počítač hrál pole", cislo_policka)
     print (pole)
