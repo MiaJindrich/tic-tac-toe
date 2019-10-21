@@ -18,6 +18,8 @@ def tah(pole, cislo_policka, symbol):
 
 def tah_hrace(pole, symbol):
     cislo_policka = int(input("Jsi na tahu! Zvol políčko 1-20: "))
+    while "-" not in pole[cislo_policka - 1]:
+        cislo_policka = int(input("Políčko je obsazené. Hraj na volné políčko: "))
     pole = tah(pole, cislo_policka, symbol)
     print (pole)
     return pole
@@ -25,10 +27,20 @@ def tah_hrace(pole, symbol):
 def tah_pocitace(pole, pocitac_symbol):
     print ("Hraje počítač.")
     symbol = pocitac_symbol
-    cislo_policka = randrange (20)
-    while "-" not in pole[cislo_policka]:
+    if "xx-" in pole:
+        pole = pole.replace("xx-", "xx" + pocitac_symbol)
+    elif "-xx" in pole:
+        pole = pole.replace("-xx", pocitac_symbol + "xx")
+    elif "oo-" in pole:
+        pole = pole.replace("oo-", "oo" + pocitac_symbol)
+    elif "-oo" in pole:
+        pole = pole.replace("-oo", pocitac_symbol + "oo")
+    else:
         cislo_policka = randrange (20)
-    pole = tah(pole, cislo_policka, symbol)
+        while "-" not in pole[cislo_policka - 1]:
+            cislo_policka = randrange (20)
+        pole = tah(pole, cislo_policka, symbol)
+        print("Počítač hrál pole", cislo_policka)
     print (pole)
     return pole
 
@@ -47,4 +59,5 @@ def piskvorky1d():
         vysledek = vyhodnot (pole)
     print (vyhodnot(pole))
 
+print("Hrací pole: --------------------")
 piskvorky1d()
