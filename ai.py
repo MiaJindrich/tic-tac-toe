@@ -42,5 +42,4 @@ def tah_pocitace(pole, pocitac_symbol, symbol):
             cislo_policka = random.randrange (1, 19)
         pole = util.tah(pole, cislo_policka, pocitac_symbol)
         print("Počítač hrál pole", cislo_policka)
-    print (pole)
     return pole

@@ -66,6 +66,7 @@ def piskvorky1d():
             print(str(ex))
             break
         pole = ai.tah_pocitace(pole, pocitac_symbol, symbol)
+        print(pole)
         try:
             vysledek = vyhodnot(pole)
         except Exception as ex:
