@@ -1,5 +1,6 @@
 import random
 import util
+from piskvorky import delka_pole
 
 def tah_pocitace(pole, pocitac_symbol, symbol):
     # náhodně zvolí pole 1-20, pokud je pole volné, provede tah a vykreslí změněné pole
@@ -37,9 +38,9 @@ def tah_pocitace(pole, pocitac_symbol, symbol):
         pole = pole.replace(druhy_divocak, pocitac_symbol * 2)
     # pokud žádná z těchto podmínek nenastane, počítač zvolí pole náhodně
     else:
-        cislo_policka = random.randrange (1, 19)
+        cislo_policka = random.randrange (1, delka_pole()-1)
         while "-" not in pole[cislo_policka - 1]:
-            cislo_policka = random.randrange (1, 19)
+            cislo_policka = random.randrange (1, delka_pole()-1)
         pole = util.tah(pole, cislo_policka, pocitac_symbol)
         print("Počítač hrál pole", cislo_policka)
     return pole

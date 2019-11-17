@@ -1,6 +1,10 @@
 import ai
 import util
 
+def delka_pole():
+    delka_pole = 20
+    return delka_pole
+
 def vyhodnot(pole):
     # program vyhodnotí situaci v poli a podle toho buď hra pokračuje, někdo vyhrál, nebo došly volný políčka
     # pokud se hra ukončí, vyhodí to exception, do který uloží výsledek hry
@@ -16,7 +20,6 @@ def vyhodnot(pole):
         raise Exception (vysledek)
     else:
         vysledek = "-"
-
     return vysledek
 
 def tah_hrace(pole, symbol, cislo_policka):
@@ -33,11 +36,11 @@ def rozdeleni_symbolu(symbol):
         # pokud nedostane x ani o, zachytí chybu a printne zprávu
     return pocitac_symbol
 
-def piskvorky1d():
+def piskvorky1d(delka_pole):
     # nastaví výchozí pole, zeptá se hráče na symbol, přidělí počítači druhý symbol a vyhodnotí stav pole
     # dokud jsou na poli volná místa, hra pokračuje
     # pokud program vyhodnotí, že jeden z hráčů vyhrál nebo už na poli není volné místo, hra končí
-    pole = "-" * 20
+    pole = "-" * delka_pole
     symbol = input("Jaký symbol hraješ? (o/x): ")
     symbol = symbol.lower()
     try:
