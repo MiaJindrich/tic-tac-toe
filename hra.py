@@ -1,4 +1,4 @@
 import piskvorky
 
 
-piskvorky.piskvorky1d(piskvorky.delka_pole())
+piskvorky.piskvorky1d(piskvorky.ai.delka_pole())

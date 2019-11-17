@@ -1,9 +1,7 @@
 import ai
 import util
 
-def delka_pole():
-    delka_pole = 20
-    return delka_pole
+
 
 def vyhodnot(pole):
     # program vyhodnotí situaci v poli a podle toho buď hra pokračuje, někdo vyhrál, nebo došly volný políčka

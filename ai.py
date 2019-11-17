@@ -1,6 +1,10 @@
 import random
 import util
-from piskvorky import delka_pole
+
+
+def delka_pole():
+    delka_pole = 20
+    return delka_pole
 
 def tah_pocitace(pole, pocitac_symbol, symbol):
     # náhodně zvolí pole 1-20, pokud je pole volné, provede tah a vykreslí změněné pole

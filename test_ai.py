@@ -1,8 +1,7 @@
 import ai
-from piskvorky import delka_pole
 
 def test_tah_pocitace():
-    delka = delka_pole()
+    delka = ai.delka_pole()
     assert ai.tah_pocitace("xx-", "x", "o") == "xxx"
     assert ai.tah_pocitace("-xxo", "x", "o") == "xxxo"
     assert ai.tah_pocitace("oo-", "x", "o") == "oox"
