@@ -2,7 +2,6 @@ import ai
 import util
 
 
-
 def vyhodnot(pole):
     # program vyhodnotí situaci v poli a podle toho buď hra pokračuje, někdo vyhrál, nebo došly volný políčka
     # pokud se hra ukončí, vyhodí to exception, do který uloží výsledek hry
@@ -56,7 +55,7 @@ def piskvorky1d(delka_pole):
     vysledek = vyhodnot(pole)
     while vysledek == "-":
         # zeptá se na jaké políčko chce hráč umístit svůj symbol, pokud je pole volné, zavolá funkci tah, která tak provede, nakonec vykreslí změněné pole
-        cislo_policka = int(input("Jsi na tahu! Zvol políčko 1-20: "))
+        cislo_policka = int(input("Jsi na tahu! Zvol políčko 1-" + str(delka_pole) + ": "))
         while "-" not in pole[cislo_policka - 1]:
             cislo_policka = int(input("Políčko je obsazené. Hraj na volné políčko: "))
         pole = tah_hrace(pole, symbol, cislo_policka)

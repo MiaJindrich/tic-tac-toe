@@ -3,7 +3,11 @@ import util
 
 
 def delka_pole():
+    # v této funkci je možné nastavit výchozí délku pole, měla by mít délku alespoň 5, aby hra měla smysl
     delka_pole = 20
+    if delka_pole < 5 or delka_pole > 100:
+        neplatna_delka_pole = "Délka pole je neplatná."
+        raise Exception (neplatna_delka_pole)
     return delka_pole
 
 def tah_pocitace(pole, pocitac_symbol, symbol):
